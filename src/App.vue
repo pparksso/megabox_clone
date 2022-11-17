@@ -19,4 +19,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 </style>

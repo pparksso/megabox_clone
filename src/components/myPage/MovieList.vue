@@ -1,7 +1,7 @@
 <template>
-  <MovieList />
+  <Login />
 </template>
 <script setup>
-import MovieList from "../components/myPage/MovieList.vue";
+import Login from "../common/Login.vue";
 </script>
 <style lang="scss" scoped></style>
