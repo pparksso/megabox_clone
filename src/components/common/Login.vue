@@ -4,24 +4,42 @@
       <div class="top">
         <div class="inner">
           <span>로그인</span>
-          <button><span class="material-icons"> close </span></button>
+          <button @click="close()"><span class="material-icons"> close </span></button>
         </div>
       </div>
       <div class="loginBox">
         <div class="googleLoginBtn">
-          <img src="assets/images/common/google.svg" alt="google" />
-          <span>구글 계정으로 로그인</span>
+          <button @click="login()">
+            <img src="assets/images/common/google.svg" alt="google" />
+            <span>구글 계정으로 로그인</span>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import { authStore } from "/src/store/auth";
+const auth = authStore();
+
+//로그인 버튼 클릭 이벤트(구글로그인)
+function login() {
+  auth.googleLogin();
+}
+
+// 모달창 닫기 함수
+function close() {
+  auth.loginModalClose();
+}
+</script>
 <style lang="scss" scoped>
 .loginCover {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;

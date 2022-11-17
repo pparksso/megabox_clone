@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Layout from "../views/Layout.vue";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Layout from "../layout/Layout.vue";
 import MainView from "../views/MainView.vue";
 import DetailView from "../views/DetailView.vue";
 import MyPageView from "../views/MyPageView.vue";
@@ -10,13 +11,38 @@ const routes = [
     name: "layout",
     component: Layout,
     children: [
-      { path: "/", component: MainView },
-      { path: "detail/:title", component: DetailView },
-      { path: "mypage", component: MyPageView },
+      { path: "/", component: MainView, meta: { requiresAuth: false } },
+      { path: "detail/:title", component: DetailView, meta: { requiresAuth: false } },
+      { path: "mypage", component: MyPageView, meta: { requiresAuth: true } },
     ],
   },
 ];
-
 const router = createRouter({ history: createWebHistory(), routes });
+
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const removeListener = onAuthStateChanged(
+      getAuth(),
+      (user) => {
+        removeListener();
+        resolve(user);
+      },
+      reject
+    );
+  });
+};
+
+router.beforeEach(async (to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (await getCurrentUser()) {
+      next();
+    } else {
+      alert("로그인이 해제되었습니다.");
+      next("/");
+    }
+  } else {
+    next();
+  }
+});
 
 export default router;
