@@ -1,12 +1,13 @@
-import req from "./instance";
+import tmdb from "./instance";
 
 /**
  * 함수 기능
  */
-function 제목(인수) {
-  return req.get(`나머지 주소`);
+function getPopularMovie() {
+  const apiKey = import.meta.env.VITE_TMDB_APIKEY;
+  return tmdb.get(`popular?api_key=${apiKey}&language=ko-KR`);
 }
 
-const movieApi = { 제목 };
+const movieApi = { getPopularMovie };
 
 export default movieApi;

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Layout from "../views/Layout.vue";
+import Layout from "../layout/Layout.vue";
 import MainView from "../views/MainView.vue";
 import DetailView from "../views/DetailView.vue";
 import MyPageView from "../views/MyPageView.vue";
