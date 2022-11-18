@@ -2,7 +2,9 @@
   <div class="header">
     <div class="container">
       <router-link to="/">
-        <h1 class="logo"><img src="assets/images/common/logo.png" alt="megabox" /></h1>
+        <h1 class="logo">
+          <img src="assets/images/common/logo.png" alt="megabox" />
+        </h1>
       </router-link>
       <div class="gnb" v-if="isLoggedIn">
         <ul>
@@ -25,8 +27,8 @@
   </div>
 </template>
 <script setup>
-import { storeToRefs } from "pinia";
-import { authStore } from "../../store/auth";
+import { storeToRefs } from 'pinia';
+import { authStore } from '../../store/auth';
 const auth = authStore();
 const { isLoggedIn } = storeToRefs(auth);
 

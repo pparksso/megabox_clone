@@ -14,6 +14,7 @@ export const useMovieStore = defineStore('movie', {
           const movies = response.data.results;
           const result = movies.slice(0, 4);
           this.movies = result;
+          console.log(result);
         })
         .catch(error => {
           console.log(error);

@@ -1,7 +1,11 @@
 <template>
   <div class="heartBox">
-    <button class="fullHeart" v-if=""><span class="material-icons"> favorite </span></button>
-    <button class="emptyHeart" v-else><span class="material-icons"> favorite_border </span></button>
+    <button class="fullHeart">
+      <span class="material-icons"> favorite </span>
+    </button>
+    <button class="emptyHeart">
+      <span class="material-icons"> favorite_border </span>
+    </button>
   </div>
 </template>
 <script setup></script>
