@@ -1,6 +1,7 @@
 <template>
   <router-view></router-view>
 </template>
+
 <script setup></script>
 
 <style lang="scss">
@@ -22,6 +23,7 @@ a {
 button {
   background: none;
   border: none;
+  padding: 0;
   outline: none;
   cursor: pointer;
 }
