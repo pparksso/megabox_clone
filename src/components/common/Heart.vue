@@ -1,12 +1,5 @@
 <template>
   <div class="heartBox">
-<<<<<<< HEAD
-    <button class="fullHeart">
-      <span class="material-icons"> favorite </span>
-    </button>
-    <button class="emptyHeart">
-      <span class="material-icons"> favorite_border </span>
-=======
     <button class="fullHeart" v-if="heartState" @click="fullHeartClick">
       <span
         class="material-icons"
@@ -28,14 +21,14 @@
       >
         favorite_border
       </span>
->>>>>>> mypageCSS
+      >>>>>>> mypageCSS
     </button>
   </div>
 </template>
 <script setup>
-import { storeToRefs } from "pinia";
-import { authStore } from "../../store/auth";
-import { heartStore } from "../../store/util";
+import { storeToRefs } from 'pinia';
+import { authStore } from '../../store/auth';
+import { heartStore } from '../../store/util';
 const heart = heartStore();
 const auth = authStore();
 const { isLoggedIn } = storeToRefs(auth);
@@ -49,7 +42,7 @@ function emptyHeartClick() {
   if (isLoggedIn.value) {
     //로컬스토리지 생성 -> 스테이트 변경 -> 화면 반영
   } else {
-    alert("로그인 후 이용가능합니다.");
+    alert('로그인 후 이용가능합니다.');
   }
 }
 
