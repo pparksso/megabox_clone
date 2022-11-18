@@ -58,6 +58,7 @@ export const authStore = defineStore("auth", {
         .then(() => {
           this.isLoggedIn = false;
           localStorage.removeItem("google_token");
+          window.location.href = "/";
         })
         .catch((err) => console.log(err));
     },

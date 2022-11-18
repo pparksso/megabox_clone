@@ -4,12 +4,12 @@
       <div class="top">
         <div class="inner">
           <span>로그인</span>
-          <button @click="close()"><span class="material-icons"> close </span></button>
+          <button @click="close"><span class="material-icons"> close </span></button>
         </div>
       </div>
       <div class="loginBox">
         <div class="googleLoginBtn">
-          <button @click="login()">
+          <button @click="login">
             <img src="assets/images/common/google.svg" alt="google" />
             <span>구글 계정으로 로그인</span>
           </button>

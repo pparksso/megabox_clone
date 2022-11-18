@@ -12,7 +12,7 @@ const routes = [
     component: Layout,
     children: [
       { path: "/", component: MainView, meta: { requiresAuth: false } },
-      { path: "detail/:title", component: DetailView, meta: { requiresAuth: false } },
+      { path: "detail/:id", component: DetailView, meta: { requiresAuth: false } },
       { path: "mypage", component: MyPageView, meta: { requiresAuth: true } },
     ],
   },
