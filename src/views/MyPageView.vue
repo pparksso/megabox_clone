@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup>
-import MovieList from '../components/myPage/MovieList.vue';
+import MovieList from "../components/myPage/MyMovieList.vue";
 </script>
 <style lang="scss" scoped>
 .container {

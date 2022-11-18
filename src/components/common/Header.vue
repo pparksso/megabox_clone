@@ -9,7 +9,7 @@
       <div class="gnb" v-if="isLoggedIn">
         <ul>
           <li>
-            <button @click="logout()"><span>로그아웃</span></button>
+            <button @click="logout"><span>로그아웃</span></button>
           </li>
           <li>
             <router-link to="/mypage"><span>마이페이지</span></router-link>
@@ -19,7 +19,7 @@
       <div class="gnb" v-else>
         <ul>
           <li>
-            <button @click="loginOpen()"><span>로그인</span></button>
+            <button @click="loginOpen"><span>로그인</span></button>
           </li>
         </ul>
       </div>
