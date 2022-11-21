@@ -1,35 +1,38 @@
 <template>
   <div class="myMovieList">
     <ul>
-      <li v-for="m in movies" :key="m.id">
-        <router-link :to="{ path: '/detail/' + m.id }">
-          <div class="imgBox"><img :src="url + m.poster_path" :alt="m.original_title" /></div
+      <li v-for="i in favoriteState" :key="i.id" v-if="favoriteState">
+        <router-link :to="{ path: '/detail/' + i.id }">
+          <div class="imgBox"><img :src="url + i.poster_path" :alt="i.title" /></div
         ></router-link>
-        <router-link :to="{ path: '/detail/' + m.id }" class="title"
+        <router-link :to="{ path: '/detail/' + i.id }" class="title"
           ><div class="titleBox">
-            <span>{{ m.title }}</span>
+            <span>{{ i.title }}</span>
           </div></router-link
         >
         <div class="scoreBox">
-          <span>{{ Math.floor(m.popularity) }}</span>
+          <span>{{ Math.floor(i.popularity) }}</span>
         </div>
         <div class="heart">
-          <Heart :heartColor="color" :heartSize="size" />
+          <Heart :movie="i" :id="i.id" />
         </div>
       </li>
+      <div class="emptyBox" v-else>나의 영화가 없습니다.</div>
     </ul>
   </div>
 </template>
 <script setup>
+import { ref } from "vue";
 import Heart from "../common/Heart.vue";
-import { useMovieStore } from "../../store/movie";
+import { heartStore } from "../../store/util";
 import { storeToRefs } from "pinia";
-const movieStore = useMovieStore();
-const { movies } = storeToRefs(movieStore);
+const heart = heartStore();
+const { favoriteState } = storeToRefs(heart);
+let favoriteList = ref(true);
+
+heart.getFavoritAct();
+
 const url = "https://image.tmdb.org/t/p/w200";
-const color = "rgb(228, 9, 9)";
-const size = "30px";
-console.log(movies.value);
 </script>
 <style lang="scss" scoped>
 .myMovieList {
@@ -65,6 +68,11 @@ console.log(movies.value);
         margin-left: 20px;
         /* border: 1px solid #555; */
       }
+    }
+    .emptyBox {
+      text-align: center;
+      font-size: 30px;
+      padding-top: 100px;
     }
   }
 }
