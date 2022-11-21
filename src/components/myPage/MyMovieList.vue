@@ -22,7 +22,6 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
 import Heart from "../common/Heart.vue";
 import { heartStore } from "../../store/util";
 import { storeToRefs } from "pinia";
