@@ -5,6 +5,7 @@ import movieApi from "../api/movie";
 export const useMovieStore = defineStore("movie", {
   state: () => ({
     movies: [],
+    details: {},
   }),
   actions: {
     getMovieInfo() {
@@ -18,6 +19,16 @@ export const useMovieStore = defineStore("movie", {
         .catch((error) => {
           console.log(error);
         });
+    },
+    actionDetailMovie(id) {
+      movieApi.getDetailMovie(id).then(response => {
+        console.log(response.data.title);
+        this.details = {
+          title: response.data.title,
+          overview: response.data.overview,
+        };
+        console.log(this.details);
+      });
     },
   },
 });

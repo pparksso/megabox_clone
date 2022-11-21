@@ -9,18 +9,18 @@
   </div>
 </template>
 <script setup>
-import { storeToRefs } from "pinia";
-import Heart from "../common/Heart.vue";
-import { useMovieStore } from "../../store/movie";
+import { storeToRefs } from 'pinia';
+import Heart from '../common/Heart.vue';
+import { useMovieStore } from '../../store/movie';
 
 const movieStore = useMovieStore();
 
 const { movies } = storeToRefs(movieStore);
-const url = "https://image.tmdb.org/t/p/w300";
+const url = 'https://image.tmdb.org/t/p/w300';
 
 //heart css props
-const color = "#ddd";
-const fontSize = "28px";
+const color = '#ddd';
+const fontSize = '28px';
 </script>
 
 <style lang="scss" scoped>
