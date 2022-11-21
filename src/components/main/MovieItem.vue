@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div v-for="movie in movies" :key="movie.id" class="movie-item">
-      <img :src="url + movie.poster_path" />
+      <router-link :to="`detail/${movie.id}`">
+        <img :src="url + movie.poster_path" />
+      </router-link>
     </div>
   </div>
 </template>
