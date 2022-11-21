@@ -28,8 +28,6 @@ import { heartStore } from "../../store/util";
 import { storeToRefs } from "pinia";
 const heart = heartStore();
 const { favoriteState } = storeToRefs(heart);
-let favoriteList = ref(true);
-
 heart.getFavoritAct();
 
 const url = "https://image.tmdb.org/t/p/w200";
