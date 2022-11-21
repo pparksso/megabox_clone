@@ -15,6 +15,7 @@ import MovieList from "../components/myPage/MyMovieList.vue";
   width: 80vw;
   margin: 0 auto;
   padding: 100px 0;
+  color: #fff;
   .title {
     width: 100%;
     text-align: center;
